@@ -8,8 +8,10 @@ let array_2 = [
     { id: '_54234gfgd', description: 'text', capacity: 0 },
 ]
 
-const ids = new Set(array_1.map(({ id, description }) => id));
+const ids = array_1.map(obj => obj.id)
+// const ids = new Set(array_1.map(({ id, description }) => id));
 console.log(ids)
 
-let result = array_2.filter(({ id, capacity }) => ids.has(id) || capacity > 0)
+let result = array_2.filter(obj => ids.includes(obj.id) || obj.capacity > 0) 
+// let result = array_2.filter(({ id, capacity }) => ids.has(id) || capacity > 0)
 console.log(result);
